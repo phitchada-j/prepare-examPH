@@ -9,40 +9,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
- --pink:#f7b7ca;--pink2:#ffe0e9;--pink3:#fff2f6;--cream:#fff5c9;
- --yellow:#f7d96a;--brown:#5c4650;--muted:#8d7880;--white:#fff;
- --green:#76b894;--red:#df7474;--shadow:0 12px 35px rgba(130,75,95,.12);
+ --rose:#ff6f9f;--rose2:#ffe5ef;--rose3:#fff7fb;--mint:#22c6b8;
+ --aqua:#15b8ff;--lemon:#ffe873;--lime:#89d66b;--violet:#7d6cff;
+ --ink:#182235;--muted:#667085;--white:#fff;--panel:rgba(255,255,255,.86);
+ --green:#50bd82;--red:#e36d77;--line:rgba(21,184,255,.24);--softline:#ecedf8;
+ --shadow:0 22px 70px rgba(24,34,53,.14);--glow:0 0 0 1px rgba(34,198,184,.18),0 18px 45px rgba(21,184,255,.13);
 }
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#fff8fa,#fffdf0);color:var(--brown);font-family:Kanit,sans-serif}
-button,input,select{font:inherit}.app{display:flex;min-height:100vh}
-.sidebar{width:250px;background:rgba(255,255,255,.92);border-right:1px solid #f4dce4;padding:22px 15px;position:fixed;inset:0 auto 0 0;z-index:10}
-.brand{display:flex;gap:11px;align-items:center;padding:5px 10px 22px}.logo{width:46px;height:46px;border-radius:16px;background:var(--pink);display:grid;place-items:center;font-size:24px;box-shadow:0 5px 15px #eeb0c4}.brand b{font-size:21px}.brand small{display:block;color:var(--muted);font-size:11px}
-.nav button{width:100%;border:0;background:transparent;color:var(--brown);text-align:left;padding:12px 14px;border-radius:14px;margin:3px 0;cursor:pointer}
-.nav button:hover,.nav button.active{background:var(--pink2);color:#a83f65}.nav span{display:inline-block;width:27px}.side-bottom{position:absolute;bottom:18px;left:15px;right:15px}
-.main{margin-left:250px;width:calc(100% - 250px);padding:24px 30px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.top h1{margin:0;font-size:27px}.userbox{display:flex;align-items:center;gap:10px}.avatar{width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center}
-.card{background:rgba(255,255,255,.9);border:1px solid #f2dce4;border-radius:22px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
-.hero{background:linear-gradient(110deg,var(--pink2),var(--cream));display:flex;justify-content:space-between;align-items:center;gap:20px}.hero h2{font-family:Mali;font-size:28px;margin:4px 0}.hero p{margin:6px 0;color:#765e67}.hero-art{font-size:70px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.stat b{display:block;font-size:28px;color:#a83f65}.stat small{color:var(--muted)}
-.subject{padding:18px;border-radius:18px;background:var(--pink3);border:1px solid #f6dce4;cursor:pointer}.subject h3{font-size:16px;margin:5px 0}.subject p{font-size:12px;color:var(--muted);margin:0}
-.btn{border:0;border-radius:13px;padding:10px 16px;background:#df82a2;color:white;cursor:pointer;font-weight:500}.btn.secondary{background:#fff;border:1px solid #edcbd7;color:#9d536d}.btn.yellow{background:#e8c64f;color:#5d4c21}.btn.danger{background:#d97b7b}.btn:disabled{opacity:.5;cursor:not-allowed}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}
-.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--pink2);font-size:12px;color:#a34b69}
-.progress{height:10px;background:#f5e8eb;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:#e487a5;border-radius:99px}
-.question{padding:20px;border:1px solid #f0dce2;border-radius:18px;margin:12px 0;background:#fff}.option{display:block;width:100%;text-align:left;padding:13px;border:1px solid #eadde1;border-radius:13px;background:#fff;margin:8px 0;cursor:pointer}.option.selected{background:#ffe6ee;border-color:#df82a2}.option.correct{background:#e8f7ec;border-color:#82b997}.option.wrong{background:#ffeded;border-color:#df8a8a}
-.timer{font-size:25px;font-weight:700;color:#a83f65;background:var(--pink2);padding:8px 15px;border-radius:14px}
-.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px;border-bottom:1px solid #f1e4e8;text-align:left;font-size:13px}
-.input{width:100%;padding:12px;border:1px solid #e6d5da;border-radius:12px;outline:none;background:#fff}.input:focus{border-color:#dc91a9}
-.modal{position:fixed;inset:0;background:rgba(72,46,55,.35);display:none;place-items:center;z-index:50;padding:18px}.modal.show{display:grid}.modalbox{width:min(430px,100%);background:#fff;border-radius:24px;padding:25px}.modalbox h2{margin-top:0;font-family:Mali}
-.notice{padding:12px 14px;background:#fff8dc;border-left:4px solid var(--yellow);border-radius:10px;margin:8px 0}
-.hidden{display:none!important}.muted{color:var(--muted)}.center{text-align:center}.empty{padding:30px;text-align:center;color:var(--muted)}
-.toast{position:fixed;right:20px;bottom:20px;background:#5c4650;color:#fff;padding:12px 16px;border-radius:12px;display:none;z-index:100}
-.mobile-menu{display:none}
-@media(max-width:1050px){.grid5{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#f8fdff 0%,#fff7fb 38%,#f7fff1 70%,#fff9df 100%);color:var(--ink);font-family:Kanit,sans-serif;letter-spacing:0}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,rgba(21,184,255,.12) 1px,transparent 1px),linear-gradient(0deg,rgba(34,198,184,.1) 1px,transparent 1px),repeating-linear-gradient(115deg,transparent 0 36px,rgba(255,111,159,.055) 37px 38px);background-size:34px 34px,34px 34px,auto;opacity:.75;pointer-events:none}
+body:after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 28%,rgba(21,184,255,.04));pointer-events:none}
+button,input,select{font:inherit}button{overflow-wrap:anywhere}.app{display:flex;min-height:100vh;position:relative}
+.sidebar{width:288px;background:rgba(255,255,255,.78);backdrop-filter:blur(22px);border-right:1px solid rgba(21,184,255,.2);padding:24px 16px;position:fixed;inset:0 auto 0 0;z-index:10;box-shadow:8px 0 40px rgba(24,34,53,.05)}
+.brand{display:flex;gap:12px;align-items:center;padding:4px 8px 24px}.logo{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--rose),var(--lemon) 48%,var(--mint));display:grid;place-items:center;font-size:24px;box-shadow:0 18px 36px rgba(21,184,255,.18)}.brand b{font-family:Mali;font-size:22px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.nav button{width:100%;border:1px solid transparent;background:transparent;color:var(--ink);text-align:left;padding:12px 13px;border-radius:8px;margin:4px 0;cursor:pointer;display:grid;grid-template-columns:30px 1fr;align-items:center;transition:.18s;position:relative}
+.nav button:hover,.nav button.active{background:linear-gradient(135deg,#fff,#f1fbff 45%,#fff3f8);border-color:rgba(21,184,255,.35);color:#075f7a;box-shadow:var(--glow)}.nav button.active:before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:3px;border-radius:8px;background:linear-gradient(var(--rose),var(--mint))}.nav span{width:auto}.side-bottom{position:absolute;bottom:18px;left:16px;right:16px}
+.main{margin-left:288px;width:calc(100% - 288px);padding:28px 36px;position:relative;z-index:1}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.top h1{margin:0;font-family:Mali;font-size:29px}.userbox{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-shadow:0 12px 34px rgba(24,34,53,.06)}.avatar{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,#e5fbff,var(--lemon));display:grid;place-items:center}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:var(--shadow);margin-bottom:18px;backdrop-filter:blur(18px)}.card h2,.card h3{overflow-wrap:anywhere}.hero{background:linear-gradient(120deg,rgba(255,255,255,.94) 0%,rgba(234,250,255,.9) 42%,rgba(255,245,250,.9) 100%);display:flex;justify-content:space-between;align-items:center;gap:22px;border-color:rgba(255,111,159,.22)}.hero h2{font-family:Mali;font-size:30px;margin:6px 0}.hero p{margin:8px 0;color:var(--muted);max-width:680px}.hero-art{font-size:64px;line-height:1}
+.blueprint{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(240,253,255,.88) 45%,rgba(255,250,226,.9));border-color:rgba(34,198,184,.32)}.blueprint:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,184,255,.12) 1px,transparent 1px),linear-gradient(0deg,rgba(255,111,159,.08) 1px,transparent 1px);background-size:42px 42px;pointer-events:none}.blueprint>*{position:relative}.blueprint-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:18px;align-items:center}.blueprint-kicker{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.blueprint h2{font-family:Mali;font-size:32px;margin:0 0 8px}.blueprint p{color:var(--muted);margin:6px 0}.blueprint-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.blueprint-cell{min-height:118px;padding:14px;border:1px solid rgba(21,184,255,.24);border-radius:8px;background:rgba(255,255,255,.74)}.blueprint-cell b{display:block;font-family:Mali;font-size:15px;margin-bottom:8px;color:#075f7a}.blueprint-cell span{display:block;color:var(--muted);font-size:13px;line-height:1.55}.blueprint-meter{padding:14px;border:1px solid rgba(255,111,159,.24);border-radius:8px;background:rgba(255,255,255,.72)}.blueprint-meter strong{font-family:Mali;font-size:44px;line-height:1;color:#075f7a}.signal{height:8px;margin-top:12px;border-radius:999px;background:linear-gradient(90deg,var(--rose) 0 18%,var(--aqua) 18% 52%,var(--lime) 52% 76%,var(--lemon) 76%);box-shadow:0 0 22px rgba(21,184,255,.22)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.stat b{display:block;font-size:30px;color:#075f7a}.stat small{color:var(--muted)}.stat:nth-child(2) b{color:#c14b75}.stat:nth-child(3) b{color:#6f941d}
+.subject{padding:16px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(244,252,255,.9));border:1px solid rgba(21,184,255,.22);cursor:pointer;min-height:132px;transition:.18s}.subject:hover{transform:translateY(-2px);border-color:rgba(255,111,159,.45);box-shadow:var(--glow)}.subject h3{font-size:15px;margin:8px 0;line-height:1.45}.subject p{font-size:12px;color:var(--muted);margin:0}
+.btn{border:0;border-radius:8px;padding:10px 16px;background:linear-gradient(135deg,#ff5f96,#ff8a64);color:white;cursor:pointer;font-weight:600;box-shadow:0 10px 22px rgba(255,95,150,.22);transition:.18s}.btn:hover{transform:translateY(-1px)}.btn.secondary{background:#fff;border:1px solid rgba(21,184,255,.26);color:#075f7a;box-shadow:none}.btn.yellow{background:linear-gradient(135deg,#ffd951,#fff08a);color:#604c00}.btn.danger{background:#d97b7b}.btn.mint{background:linear-gradient(135deg,#16aab0,#5bd7b2)}.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}.badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eefbff;border:1px solid rgba(21,184,255,.18);font-size:12px;color:#075f7a}.badge.mint{background:#ddf7f3;color:#147b71;border-color:#bdebe4}.badge.lemon{background:#fff2a9;color:#756000;border-color:#f5df62}.badge.rose{background:#ffe5ef;color:#a63862;border-color:#ffc7db}
+.progress{height:10px;background:#f4e7ec;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--rose),var(--mint));border-radius:99px}.question{padding:20px;border:1px solid #f0dce2;border-radius:8px;margin:12px 0;background:#fff}.question h3{line-height:1.55}.option{display:block;width:100%;text-align:left;padding:13px 14px;border:1px solid #eadde1;border-radius:8px;background:#fff;margin:8px 0;cursor:pointer;line-height:1.55}.option:hover{border-color:#ef9dbb;background:#fff8fb}.option.selected{background:#ffe6ee;border-color:#df82a2}.option.correct{background:#e8f7ec;border-color:#82b997}.option.wrong{background:#ffeded;border-color:#df8a8a}
+.feedback{margin-top:14px;padding:16px;border:1px solid #eadde1;border-left-width:5px;border-radius:8px;background:linear-gradient(135deg,#fff,#fffafa);line-height:1.7}.feedback.good{border-left-color:var(--green);background:#f4fff8}.feedback.bad{border-left-color:var(--red);background:#fff7f7}.feedback.pending{border-left-color:var(--lemon);background:#fffdf0}.feedback-title{font-family:Mali;font-weight:700;font-size:18px;margin:0 0 8px}.feedback-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}.feedback-block{padding:10px;border:1px solid rgba(234,221,225,.9);border-radius:8px;background:rgba(255,255,255,.78)}.feedback-block b{display:block;color:#8b4761;margin-bottom:4px}.feedback p{margin:6px 0}.feedback ul{margin:8px 0 0;padding-left:22px}
+.timer{font-size:25px;font-weight:700;color:#a83f65;background:var(--rose2);padding:8px 15px;border-radius:8px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:11px 10px;border-bottom:1px solid #f1e4e8;text-align:left;font-size:13px;vertical-align:top}.table th{color:#6c5863;background:#fff8fb}.input{width:100%;padding:12px;border:1px solid #e6d5da;border-radius:8px;outline:none;background:#fff}.input:focus{border-color:#dc91a9;box-shadow:0 0 0 4px rgba(239,111,153,.12)}
+.import-drop{border:1px dashed #e49ab5;background:linear-gradient(135deg,#fff,#fff8fb);border-radius:8px;padding:20px}.import-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.mini{padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff}.mini b{display:block;font-size:22px;color:#a83f65}.preview{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.modal{position:fixed;inset:0;background:rgba(52,38,56,.38);display:none;place-items:center;z-index:50;padding:18px}.modal.show{display:grid}.modalbox{width:min(430px,100%);background:#fff;border-radius:8px;padding:25px;box-shadow:0 24px 70px rgba(52,38,56,.22)}.modalbox h2{margin-top:0;font-family:Mali}.notice{padding:12px 14px;background:#fff9d9;border-left:4px solid var(--lemon);border-radius:8px;margin:8px 0;line-height:1.55}.hidden{display:none!important}.muted{color:var(--muted)}.center{text-align:center}.empty{padding:30px;text-align:center;color:var(--muted)}.toast{position:fixed;right:20px;bottom:20px;background:#342638;color:#fff;padding:12px 16px;border-radius:8px;display:none;z-index:100;box-shadow:0 15px 30px rgba(52,38,56,.25)}.mobile-menu{display:none}
+@media(max-width:1120px){.grid5{grid-template-columns:repeat(2,1fr)}.grid,.import-summary,.blueprint-grid{grid-template-columns:repeat(2,1fr)}.blueprint-head{grid-template-columns:1fr}}
 @media(max-width:760px){
  .sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}
  .main{margin-left:0;width:100%;padding:16px}.mobile-menu{display:inline-block}
- .top h1{font-size:22px}.hero-art{font-size:45px}.grid,.grid5{grid-template-columns:1fr}
+ .top{align-items:flex-start}.top h1{font-size:23px}.userbox{font-size:13px}.hero{align-items:flex-start}.hero-art{font-size:42px}.grid,.grid5,.import-summary,.feedback-grid,.blueprint-grid{grid-template-columns:1fr}.blueprint h2{font-size:25px}
 }
 </style>
 </head>
@@ -53,13 +51,14 @@ button,input,select{font:inherit}.app{display:flex;min-height:100vh}
   <div class="nav">
     <button class="active" data-page="dashboard">🏠 <span>Dashboard</span></button>
     <button data-page="bank">📚 <span>คลังข้อสอบ</span></button>
+    <button data-page="import">⬆️ <span>นำเข้าไฟล์</span></button>
     <button data-page="practice">🧠 <span>ฝึกทำข้อสอบ</span></button>
     <button data-page="mock">⏱️ <span>Mock Exam</span></button>
     <button data-page="analysis">📊 <span>วิเคราะห์จุดอ่อน</span></button>
     <button data-page="news">📢 <span>ประกาศ</span></button>
     <button data-page="profile">👤 <span>โปรไฟล์</span></button>
   </div>
-  <div class="side-bottom"><button class="btn secondary" style="width:100%" onclick="openLogin()">🔐 เข้าสู่ระบบ</button></div>
+  <div class="side-bottom" id="sideAction"><button class="btn secondary" style="width:100%" onclick="openLogin()">🔐 เข้าสู่ระบบ</button></div>
 </aside>
 
 <main class="main">
@@ -97,33 +96,121 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbwmNROb7oL7aJfOLn8yjf9q
 const EXAM_DATE = "2026-12-31T09:00:00+07:00";
 
 const SUBJECTS = [
- "กฎหมายและจรรยาบรรณวิชาชีพ",
- "การส่งเสริมสุขภาพและป้องกันโรค",
+ "การส่งเสริมสุขภาพและอนามัยชุมชน",
+ "ป้องกันโรค ควบคุมโรค ระบาดวิทยา สถิติ และการวิจัยทางด้านสาธารณสุข",
+ "ตรวจประเมินและบำบัดโรคเบื้องต้น",
+ "อาชีวอนามัย",
  "อนามัยสิ่งแวดล้อม",
- "ระบาดวิทยาและสถิติสุขภาพ",
- "การจัดการระบบสุขภาพชุมชน"
+ "บริหารสาธารณสุข",
+ "กฎหมายที่เกี่ยวข้องกับการแพทย์และสาธารณสุข"
 ];
 
+const EXAM_BLUEPRINT = {
+ title:"Blueprint แนะนำแนวทางการสอบ",
+ status:"รออัปเดตรายละเอียด",
+ subtitle:"พื้นที่สรุปภาพรวมการสอบ เกณฑ์สำคัญ และแนวทางเตรียมตัวแบบเร็ว เดี๋ยวเติมข้อมูลจริงได้ตรงนี้",
+ focus:"7 หมวด",
+ items:[
+  {title:"ขอบเขตที่ต้องอ่าน",text:"สรุปหัวข้อออกสอบและน้ำหนักแต่ละวิชา"},
+  {title:"ลำดับการทำข้อสอบ",text:"แนวทางแบ่งเวลา อ่านโจทย์ และตัดตัวเลือก"},
+  {title:"จุดที่ควรทบทวน",text:"รวบรวมประเด็นที่มักพลาดจากผลการทำข้อสอบ"},
+  {title:"แผนโค้งสุดท้าย",text:"ตารางอ่าน ทวน และทำ mock ก่อนวันสอบ"}
+ ]
+};
+
 const DEMO_QUESTIONS = [
- {questionId:"D001",subject:SUBJECTS[0],difficulty:"ง่าย",question:"ข้อใดเป็นหลักสำคัญของจรรยาบรรณวิชาชีพ",options:["คำนึงถึงประโยชน์และความปลอดภัยของผู้รับบริการ","เปิดเผยข้อมูลผู้รับบริการได้เสมอ","ให้บริการเฉพาะคนที่รู้จัก","หลีกเลี่ยงความรับผิดชอบ"],answerIndex:0,explanation:"หลักจริยธรรมมุ่งคุ้มครองผู้รับบริการและความรับผิดชอบของผู้ประกอบวิชาชีพ."},
+ {questionId:"D001",subject:SUBJECTS[6],difficulty:"ง่าย",question:"ข้อใดเป็นหลักสำคัญของจรรยาบรรณวิชาชีพ",options:["คำนึงถึงประโยชน์และความปลอดภัยของผู้รับบริการ","เปิดเผยข้อมูลผู้รับบริการได้เสมอ","ให้บริการเฉพาะคนที่รู้จัก","หลีกเลี่ยงความรับผิดชอบ"],answerIndex:0,explanation:"หลักจริยธรรมมุ่งคุ้มครองผู้รับบริการและความรับผิดชอบของผู้ประกอบวิชาชีพ."},
  {questionId:"D002",subject:SUBJECTS[1],difficulty:"ง่าย",question:"การป้องกันโรคระดับปฐมภูมิมุ่งเน้นสิ่งใด",options:["ป้องกันก่อนเกิดโรค","รักษาภาวะแทรกซ้อน","ฟื้นฟูหลังพิการ","รักษาในระยะสุดท้าย"],answerIndex:0,explanation:"ปฐมภูมิเน้นการป้องกันก่อนเกิดโรค เช่น การสร้างเสริมสุขภาพและลดปัจจัยเสี่ยง."},
- {questionId:"D003",subject:SUBJECTS[2],difficulty:"ง่าย",question:"ข้อใดเกี่ยวข้องกับอนามัยสิ่งแวดล้อมโดยตรง",options:["คุณภาพน้ำและการจัดการขยะ","การเลือกสีเสื้อ","การทำบัญชีส่วนตัว","การตลาดสินค้า"],answerIndex:0,explanation:"น้ำเสีย ขยะ อากาศ และสิ่งแวดล้อมที่มีผลต่อสุขภาพเป็นประเด็นของอนามัยสิ่งแวดล้อม."},
- {questionId:"D004",subject:SUBJECTS[3],difficulty:"ง่าย",question:"Incidence ใช้สะท้อนสิ่งใด",options:["จำนวนผู้ป่วยรายใหม่ในช่วงเวลาหนึ่ง","จำนวนผู้ป่วยทั้งหมดตลอดชีวิต","จำนวนประชากรทั้งหมด","จำนวนบุคลากรสาธารณสุข"],answerIndex:0,explanation:"Incidence เน้นการเกิดผู้ป่วยรายใหม่ในประชากรช่วงเวลาที่กำหนด."},
- {questionId:"D005",subject:SUBJECTS[4],difficulty:"ง่าย",question:"การมีส่วนร่วมของชุมชนมีประโยชน์อย่างไร",options:["ช่วยให้การแก้ปัญหาสอดคล้องกับบริบทชุมชน","ทำให้ไม่ต้องเก็บข้อมูล","ลดความจำเป็นของการประเมินผล","ให้หน่วยงานตัดสินใจฝ่ายเดียว"],answerIndex:0,explanation:"การมีส่วนร่วมช่วยให้คนในพื้นที่ร่วมวิเคราะห์ วางแผน และสนับสนุนการดำเนินงาน."}
+ {questionId:"D003",subject:SUBJECTS[4],difficulty:"ง่าย",question:"ข้อใดเกี่ยวข้องกับอนามัยสิ่งแวดล้อมโดยตรง",options:["คุณภาพน้ำและการจัดการขยะ","การเลือกสีเสื้อ","การทำบัญชีส่วนตัว","การตลาดสินค้า"],answerIndex:0,explanation:"น้ำเสีย ขยะ อากาศ และสิ่งแวดล้อมที่มีผลต่อสุขภาพเป็นประเด็นของอนามัยสิ่งแวดล้อม."},
+ {questionId:"D004",subject:SUBJECTS[1],difficulty:"ง่าย",question:"Incidence ใช้สะท้อนสิ่งใด",options:["จำนวนผู้ป่วยรายใหม่ในช่วงเวลาหนึ่ง","จำนวนผู้ป่วยทั้งหมดตลอดชีวิต","จำนวนประชากรทั้งหมด","จำนวนบุคลากรสาธารณสุข"],answerIndex:0,explanation:"Incidence เน้นการเกิดผู้ป่วยรายใหม่ในประชากรช่วงเวลาที่กำหนด."},
+ {questionId:"D005",subject:SUBJECTS[0],difficulty:"ง่าย",question:"การมีส่วนร่วมของชุมชนมีประโยชน์อย่างไร",options:["ช่วยให้การแก้ปัญหาสอดคล้องกับบริบทชุมชน","ทำให้ไม่ต้องเก็บข้อมูล","ลดความจำเป็นของการประเมินผล","ให้หน่วยงานตัดสินใจฝ่ายเดียว"],answerIndex:0,explanation:"การมีส่วนร่วมช่วยให้คนในพื้นที่ร่วมวิเคราะห์ วางแผน และสนับสนุนการดำเนินงาน."}
 ];
 
 let state = {
  page:"dashboard", user:null, questions:[], announcements:[], practice:null,
- mock:null, analysis:null, authMode:"login", loading:false
+ mock:null, analysis:null, authMode:"login", loading:false,
+ importRows:[], importFileName:"", importSummary:null, importBusy:false
 };
 
 function $(id){return document.getElementById(id)}
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function escapeHtml(s){return String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function answerIndexValue(value){
+ if(value===""||value===null||value===undefined)return "";
+ const text=String(value).trim();if(!text)return "";
+ const map={"ก":0,"ข":1,"ค":2,"ง":3,"จ":4,A:0,B:1,C:2,D:3,E:4};
+ const label=text.toUpperCase();if(map[label]!==undefined)return map[label];
+ const n=Number(value);return !Number.isNaN(n)&&n>=0?n:"";
+}
+function hasAnswer(q){return answerIndexValue(q&&q.answerIndex)!==""}
+function isCorrectChoice(q,i){const a=answerIndexValue(q&&q.answerIndex);return a!==""&&Number(i)===a}
+function scoreKnown(qs,answers){const known=qs.filter(hasAnswer);return {score:known.reduce((n,q)=>n+(isCorrectChoice(q,answers[q.questionId])?1:0),0),total:known.length}}
+function optionLabel(i){return ["A","B","C","D","E"][i]||String(Number(i)+1)}
+function optionText(q,i){return ((q.options||[])[Number(i)]||"").trim()}
+function selectedText(q,i){return i===""||i===undefined||i===null?"ยังไม่ได้เลือก":`${optionLabel(i)}. ${optionText(q,i)}`}
+function questionChoiceNotes(q){
+ if(Array.isArray(q.choiceExplanations))return q.choiceExplanations;
+ if(q.choiceExplanationsJson){try{const parsed=JSON.parse(q.choiceExplanationsJson);return Array.isArray(parsed)?parsed:[]}catch(e){}}
+ return [];
+}
+function feedbackPanel(q,selected){
+ const known=hasAnswer(q), correct=answerIndexValue(q&&q.answerIndex), answered=selected!==undefined&&selected!==null&&selected!=="";
+ const picked=answered?Number(selected):"", right=known&&answered&&picked===correct;
+ const notes=questionChoiceNotes(q), pickedNote=answered&&notes[picked]?notes[picked]:"", correctNote=known&&notes[correct]?notes[correct]:"";
+ const stateClass=!known?"pending":right?"good":"bad";
+ const title=!known?"ยังไม่มีเฉลยสำหรับข้อนี้":right?"ตอบถูกแล้ว: เหตุผลที่คำตอบนี้ถูก":"ตอบผิด: เหตุผลที่ควรเปลี่ยนคำตอบ";
+ const main=q.explanation||(!known?"ไฟล์ข้อสอบชุดนี้ยังไม่ได้ระบุเฉลย จึงยังตัดสินถูก/ผิดและคำนวณคะแนนของข้อนี้ไม่ได้":"ยังไม่มีคำอธิบายหลักในชีท");
+ const resultText=!known?"คำตอบถูกบันทึกไว้เพื่อทบทวน แต่ยังไม่ถูกนำไปคิดคะแนน":right?"คำตอบที่เลือกตรงกับเฉลย ให้จำหลักคิดนี้ไว้ใช้เจอโจทย์รูปแบบใกล้กัน":"คำตอบที่เลือกยังไม่ตรงกับเฉลย ให้ดูคำสำคัญในโจทย์และเหตุผลของตัวเลือกที่ถูก";
+ const extra=!known?"เมื่อเติม answerIndex และ explanation ในชีทแล้ว ข้อนี้จะแสดงผลถูก/ผิดพร้อมเหตุผลละเอียดทันที ตอนนี้ให้ใช้เป็นข้อสำหรับฝึกคิดและรอเฉลย":right?(q.correctExplanation||"จุดสำคัญคือคำตอบนี้สอดคล้องกับเงื่อนไขในโจทย์มากที่สุด ควรทบทวนว่าคำสำคัญใดทำให้ตัดตัวเลือกอื่นออกได้"):(q.wrongExplanation||"ให้เปรียบเทียบตัวเลือกที่เลือกกับเฉลยทีละประเด็น แล้วถามตัวเองว่าโจทย์ต้องการนิยาม ขั้นตอน สาเหตุ ผลลัพธ์ หรือข้อยกเว้นใด");
+ const learning=q.learningNote||"แนวทบทวน: ขีดเส้นคำสำคัญในโจทย์ จับหมวดความรู้ให้ได้ก่อน แล้วค่อยตัดตัวเลือกที่กว้างเกินไป แคบเกินไป หรือไม่ตรงกับสถานการณ์";
+ const noteList=[pickedNote?`<li>ตัวเลือกที่เลือก: ${escapeHtml(pickedNote)}</li>`:"",correctNote&&correctNote!==pickedNote?`<li>ตัวเลือกที่เป็นเฉลย: ${escapeHtml(correctNote)}</li>`:""].join("");
+ return `<div class="feedback ${stateClass}"><div class="feedback-title">${escapeHtml(title)}</div><p>${escapeHtml(resultText)}</p><div class="feedback-grid"><div class="feedback-block"><b>คำตอบที่เลือก</b>${escapeHtml(selectedText(q,picked))}</div><div class="feedback-block"><b>เฉลย</b>${known?escapeHtml(selectedText(q,correct)):"ยังไม่มีเฉลยในคลัง"}</div></div><p><b>คำอธิบายหลัก:</b> ${escapeHtml(main)}</p><p><b>อธิบายเพิ่มเติม:</b> ${escapeHtml(extra)}</p>${noteList?`<ul>${noteList}</ul>`:""}<p><b>จำต่อยอด:</b> ${escapeHtml(learning)}</p></div>`;
+}
+function allSubjects(){const set=new Set(SUBJECTS);state.questions.forEach(q=>q.subject&&set.add(q.subject));state.importRows.forEach(q=>q.subject&&set.add(q.subject));return [...set]}
+function countBySubject(rows){return rows.reduce((acc,q)=>{const s=q.subject||"ไม่ระบุหมวดวิชา";acc[s]=(acc[s]||0)+1;return acc},{})}
+function parseCsv(text){
+ const rows=[];let row=[],cell="",quoted=false;
+ for(let i=0;i<text.length;i++){
+  const ch=text[i],next=text[i+1];
+  if(quoted&&ch==='"'&&next==='"'){cell+='"';i++;continue}
+  if(ch==='"'){quoted=!quoted;continue}
+  if(!quoted&&ch===","){row.push(cell);cell="";continue}
+  if(!quoted&&(ch==="\n"||ch==="\r")){if(ch==="\r"&&next==="\n")i++;row.push(cell);rows.push(row);row=[];cell="";continue}
+  cell+=ch;
+ }
+ row.push(cell);if(row.some(v=>String(v).trim()))rows.push(row);
+ const headers=(rows.shift()||[]).map((h,i)=>String(h).replace(/^\uFEFF/,"").trim()||`column${i+1}`);
+ return rows.filter(r=>r.some(v=>String(v).trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,r[i]!=null?r[i]:""])));
+}
+function normalizeImportRows(rawRows){
+ return rawRows.map((r,idx)=>{
+  let options=Array.isArray(r.options)?r.options:null;
+  if(!options&&r.optionsJson){try{options=JSON.parse(r.optionsJson)}catch(e){options=null}}
+  if(!options)options=["ก","ข","ค","ง"].map(k=>r[k]||r[k+")"]||r[`option${k}`]).filter(Boolean);
+  options=(options||[]).map(x=>String(x||"").trim()).filter(Boolean);
+  const choiceExplanations=Array.isArray(r.choiceExplanations)?JSON.stringify(r.choiceExplanations):(r.choiceExplanationsJson||r.choiceExplanations||"");
+  return {
+   questionId:String(r.questionId||r.id||`IMP-${Date.now()}-${idx+1}`).trim(),
+   subject:String(r.subject||"ไม่ระบุหมวดวิชา").trim(),
+   difficulty:String(r.difficulty||"ไม่ระบุ").trim(),
+   question:String(r.question||"").trim(),
+   optionsJson:JSON.stringify(options),
+   answerIndex:String(r.answerIndex!=null?r.answerIndex:(r.answer!=null?r.answer:"")).trim(),
+   explanation:String(r.explanation||"").trim(),
+   active:String(r.active!=null?r.active:"TRUE").trim()||"TRUE",
+   createdAt:String(r.createdAt||new Date().toISOString()).trim(),
+   correctExplanation:String(r.correctExplanation||r.correctFeedback||"").trim(),
+   wrongExplanation:String(r.wrongExplanation||r.wrongFeedback||"").trim(),
+   choiceExplanationsJson:String(choiceExplanations||"").trim(),
+   learningNote:String(r.learningNote||r.note||"").trim()
+  };
+ }).filter(q=>q.question&&JSON.parse(q.optionsJson).length>=2);
+}
 function toast(msg){$("toast").textContent=msg;$("toast").style.display="block";setTimeout(()=>$("toast").style.display="none",2500)}
 function isConfigured(){return GAS_URL && !GAS_URL.includes("PASTE_YOUR")}
 async function api(action,data={}){
  if(!isConfigured()) throw new Error("ยังไม่ได้ใส่ GAS_URL");
- const r=await fetch(GAS_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action,...data})});
+ const payload=Object.assign({action:action},data||{});
+ const r=await fetch(GAS_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
  const j=await r.json(); if(!j.ok) throw new Error(j.message||"เกิดข้อผิดพลาด"); return j;
 }
 function saveLocal(){localStorage.setItem("phq_user",JSON.stringify(state.user||null))}
@@ -152,12 +239,13 @@ $("authForm").addEventListener("submit",async e=>{
 });
 function updateUser(){
  $("userLabel").textContent=state.user?`สวัสดี ${state.user.name||state.user.email}`:"ยังไม่ได้เข้าสู่ระบบ";
+ if($("sideAction"))$("sideAction").innerHTML=state.user?`<button class="btn mint" style="width:100%;margin-bottom:8px" onclick="go('import')">⬆️ นำเข้าข้อสอบ</button><button class="btn secondary" style="width:100%" onclick="logout()">ออกจากระบบ</button>`:`<button class="btn secondary" style="width:100%" onclick="openLogin()">🔐 เข้าสู่ระบบ</button>`;
 }
 function requireLogin(){if(!state.user){openLogin();return false}return true}
 async function bootstrap(){
  try{
   if(isConfigured()){
-   const r=await api("bootstrap",{token:state.user?.token||""});
+   const r=await api("bootstrap",{token:state.user&&state.user.token?state.user.token:""});
    state.questions=r.questions||[];
    state.announcements=r.announcements||[];
    state.analysis=r.analysis||null;
@@ -173,26 +261,32 @@ function go(page){
 document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
 
 function render(){
- const titles={dashboard:"Dashboard",bank:"คลังข้อสอบ",practice:"ฝึกทำข้อสอบ",mock:"Mock Exam",analysis:"วิเคราะห์จุดอ่อน",news:"ประกาศ",profile:"โปรไฟล์"};
+ const titles={dashboard:"Dashboard",bank:"คลังข้อสอบ",import:"นำเข้าไฟล์ข้อสอบ",practice:"ฝึกทำข้อสอบ",mock:"Mock Exam",analysis:"วิเคราะห์จุดอ่อน",news:"ประกาศ",profile:"โปรไฟล์"};
  $("pageTitle").textContent=titles[state.page]||"Dashboard"; updateUser();
- const fn={dashboard:renderDashboard,bank:renderBank,practice:renderPractice,mock:renderMock,analysis:renderAnalysis,news:renderNews,profile:renderProfile}[state.page];
+ const fn={dashboard:renderDashboard,bank:renderBank,import:renderImport,practice:renderPractice,mock:renderMock,analysis:renderAnalysis,news:renderNews,profile:renderProfile}[state.page];
  $("appView").innerHTML=fn();
  if(state.page==="dashboard") startCountdown();
 }
 
+function renderBlueprint(){
+ const b=EXAM_BLUEPRINT;
+ return `<section class="card blueprint"><div class="blueprint-head"><div><div class="blueprint-kicker"><span class="badge mint">Blueprint</span><span class="badge rose">${escapeHtml(b.status)}</span></div><h2>${escapeHtml(b.title)}</h2><p>${escapeHtml(b.subtitle)}</p></div><div class="blueprint-meter"><span class="muted">Exam focus</span><br><strong>${escapeHtml(b.focus)}</strong><div class="signal"></div></div></div><div class="blueprint-grid">${b.items.map((item,i)=>`<div class="blueprint-cell"><b>${String(i+1).padStart(2,"0")} ${escapeHtml(item.title)}</b><span>${escapeHtml(item.text)}</span></div>`).join("")}</div></section>`;
+}
+
 function renderDashboard(){
- const total=state.questions.length, subjects=SUBJECTS.length;
+ const subjects=allSubjects(), total=state.questions.length, withAnswer=state.questions.filter(hasAnswer).length;
  const ann=state.announcements[0];
- return `
- <section class="card hero"><div><span class="badge">PH-QUEST</span><h2>เตรียมพร้อมสู่การสอบอย่างมั่นใจ 🌷</h2><p>ฝึกทำข้อสอบ วิเคราะห์จุดอ่อน และติดตามผลการเรียนรู้ในที่เดียว</p>
- <div class="row" style="margin-top:14px"><button class="btn" onclick="go('practice')">เริ่มฝึกทำข้อสอบ</button><button class="btn secondary" onclick="go('mock')">เข้าสู่ Mock Exam</button></div></div><div class="hero-art">📚🎀</div></section>
+  return `
+ ${renderBlueprint()}
+ <section class="card hero"><div><span class="badge mint">PH-QUEST Learning Core</span><h2>คลังข้อสอบสาธารณสุขโหมดอนาคต 🌷</h2><p>รวมข้อสอบครบตามไฟล์ นำเข้าได้เองหลังล็อกอิน ฝึกครบทุกหมวด และรับ feedback รายข้อทันที</p>
+ <div class="row" style="margin-top:14px"><button class="btn" onclick="go('practice')">เริ่มฝึกครบชุด</button><button class="btn secondary" onclick="go('mock')">Mock Exam</button>${state.user?`<button class="btn mint" onclick="go('import')">นำเข้าไฟล์ข้อสอบ</button>`:`<button class="btn secondary" onclick="openLogin()">เข้าสู่ระบบเพื่อนำเข้า</button>`}</div></div><div class="hero-art">📚🎀</div></section>
  <div class="grid">
-  <div class="card stat"><small>ข้อสอบในระบบ</small><b>${total}</b><span>ข้อ</span></div>
-  <div class="card stat"><small>หมวดวิชา</small><b>${subjects}</b><span>หมวด</span></div>
-  <div class="card stat"><small>Mock Exam</small><b>40</b><span>ข้อ / 60 นาที</span></div>
-  <div class="card stat"><small>สถานะสมาชิก</small><b style="font-size:20px">${state.user?"สมาชิก":"Guest"}</b></div>
- </div>
- <div class="card"><div class="row between"><h3>📚 5 หมวดวิชา</h3><span class="muted">เลือกหมวดเพื่อฝึก</span></div><div class="grid5">${SUBJECTS.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span class="badge">หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3><p>${state.questions.filter(q=>q.subject===s).length||0} ข้อในชุดข้อมูลปัจจุบัน</p></div>`).join("")}</div></div>
+   <div class="card stat"><small>ข้อสอบในระบบ</small><b>${total}</b><span>ข้อ</span></div>
+   <div class="card stat"><small>หมวดวิชาที่แสดง</small><b>${subjects.length}</b><span>หมวด</span></div>
+   <div class="card stat"><small>มีเฉลยแล้ว</small><b>${withAnswer}</b><span>ข้อ</span></div>
+   <div class="card stat"><small>สถานะสมาชิก</small><b style="font-size:20px">${state.user?"สมาชิก":"Guest"}</b></div>
+  </div>
+ <div class="card"><div class="row between"><h3>📚 ${subjects.length} หมวดวิชา</h3><span class="muted">เลือกหมวดเพื่อฝึกครบทุกข้อในวิชานั้น</span></div><div class="grid5">${subjects.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span class="badge">หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3><p>${state.questions.filter(q=>q.subject===s).length||0} ข้อในชุดข้อมูลปัจจุบัน</p></div>`).join("")}</div></div>
  <div class="card"><div class="row between"><h3>📢 ประกาศล่าสุด</h3><button class="btn secondary" onclick="go('news')">ดูทั้งหมด</button></div>
  ${ann?`<div class="notice"><b>${escapeHtml(ann.title)}</b><br>${escapeHtml(ann.message||"")}</div>`:'<div class="empty">ยังไม่มีประกาศจากระบบ</div>'}</div>
  <div class="card center"><h3>⏳ Countdown ถึงวันสอบ</h3><div id="countdown" style="font-size:25px;font-weight:700">กำลังคำนวณ...</div><small class="muted">ปรับ EXAM_DATE ใน HTML ให้ตรงกับกำหนดการจริง</small></div>`;
@@ -200,30 +294,83 @@ function renderDashboard(){
 function startCountdown(){clearInterval(window.cd);const el=$("countdown");if(!el)return;function tick(){const d=new Date(EXAM_DATE)-new Date();if(d<=0){el.textContent="ถึงวันสอบแล้ว";return}const days=Math.floor(d/86400000),h=Math.floor(d/3600000)%24,m=Math.floor(d/60000)%60,s=Math.floor(d/1000)%60;el.textContent=`${days} วัน ${h} ชม. ${m} นาที ${s} วินาที`}tick();window.cd=setInterval(tick,1000)}
 
 function renderBank(){
- return `<div class="card"><div class="row between"><div><h3>คลังข้อสอบ</h3><p class="muted">ข้อสอบแบ่งตาม 5 หมวดวิชา</p></div><select class="input" style="max-width:320px" onchange="filterBank(this.value)"><option value="">ทุกหมวด</option>${SUBJECTS.map(s=>`<option>${escapeHtml(s)}</option>`).join("")}</select></div><div id="bankList">${bankList("")}</div></div>`;
+ const subjects=allSubjects();
+ return `<div class="card"><div class="row between"><div><h3>คลังข้อสอบ</h3><p class="muted">แสดงครบทุกข้อ ไม่มีการตัดรายการออก</p></div><select class="input" style="max-width:360px" onchange="filterBank(this.value)"><option value="">ทุกหมวด</option>${subjects.map(s=>`<option>${escapeHtml(s)}</option>`).join("")}</select></div><div id="bankList">${bankList("")}</div></div>`;
 }
 function bankList(subject){
  const qs=subject?state.questions.filter(q=>q.subject===subject):state.questions;
  if(!qs.length)return '<div class="empty">ยังไม่มีข้อสอบในหมวดนี้</div>';
- return qs.slice(0,100).map((q,i)=>`<div class="question"><div class="row between"><span class="badge">${escapeHtml(q.subject)}</span><span class="muted">${escapeHtml(q.difficulty||"")}</span></div><h3>${i+1}. ${escapeHtml(q.question)}</h3><div class="muted">ตัวเลือก ${q.options?.length||0} ตัวเลือก</div></div>`).join("");
+ return qs.map((q,i)=>`<div class="question"><div class="row between"><span class="badge">${escapeHtml(q.subject)}</span><span class="muted">${escapeHtml(q.difficulty||"")}</span></div><h3>${i+1}. ${escapeHtml(q.question)}</h3><div class="muted">ตัวเลือก ${(q.options||[]).length} ตัวเลือก ${hasAnswer(q)?"• มีเฉลย":"• ยังไม่มีเฉลย"}</div></div>`).join("");
 }
 function filterBank(v){$("bankList").innerHTML=bankList(v)}
 
+function renderImport(){
+ if(!state.user)return `<div class="card center"><h2>⬆️ นำเข้าไฟล์ข้อสอบ</h2><p class="muted">กรุณาเข้าสู่ระบบก่อนนำเข้าข้อสอบไป Google Sheets</p><button class="btn" onclick="openLogin()">เข้าสู่ระบบ</button></div>`;
+ const rows=state.importRows, counts=countBySubject(rows), summary=state.importSummary;
+ const statusText=state.importBusy?"กำลังนำเข้า":summary&&summary.error?"มีข้อผิดพลาด":summary?"นำเข้าแล้ว":rows.length?"พร้อมนำเข้า":"รอไฟล์";
+ const summaryError=summary&&summary.error?`<br>${escapeHtml(summary.error)}`:"";
+ const preview=rows.slice(0,12).map((q,i)=>`<tr><td>${i+1}</td><td>${escapeHtml(q.questionId)}</td><td>${escapeHtml(q.subject)}</td><td>${escapeHtml(q.question)}</td><td>${JSON.parse(q.optionsJson).length}</td></tr>`).join("");
+ return `<div class="card"><div class="row between"><div><span class="badge mint">Google Sheets</span><h3>นำเข้าไฟล์ข้อสอบ</h3><p class="muted">รองรับไฟล์จาก generated/questions_import.csv และ JSON โครงสร้างเดียวกัน</p></div><button class="btn secondary" onclick="state.importRows=[];state.importFileName='';state.importSummary=null;render()">ล้างไฟล์</button></div>
+ <div class="import-drop"><input class="input" type="file" accept=".csv,.json,application/json,text/csv" onchange="handleImportFile(this)">
+ <p class="muted">หลังเลือกไฟล์ ระบบจะนำเข้าทุกแถวที่ผ่านการตรวจ ไม่ตัดข้อสอบออก</p></div>
+ ${state.importFileName?`<p><b>ไฟล์:</b> ${escapeHtml(state.importFileName)}</p>`:""}
+ <div class="import-summary">
+  <div class="mini"><small>พร้อมนำเข้า</small><b>${rows.length}</b><span>ข้อ</span></div>
+  <div class="mini"><small>หมวดในไฟล์</small><b>${Object.keys(counts).length}</b><span>หมวด</span></div>
+  <div class="mini"><small>มีเฉลย</small><b>${rows.filter(hasAnswer).length}</b><span>ข้อ</span></div>
+  <div class="mini"><small>สถานะ</small><b style="font-size:18px">${statusText}</b></div>
+ </div>
+ ${rows.length?`<div class="mini" style="margin-top:16px"><div class="row between"><h3>สรุปตามหมวด</h3><button class="btn mint" onclick="importSelectedQuestions()" ${state.importBusy?"disabled":""}>นำเข้าทั้งหมด ${rows.length} ข้อ</button></div>${Object.keys(counts).map(s=>`<span class="badge lemon" style="margin:4px">${escapeHtml(s)}: ${counts[s]} ข้อ</span>`).join("")}</div>`:""}
+ ${summary?`<div class="notice"><b>ผลการนำเข้า</b><br>นำเข้าใหม่ ${summary.imported||0} ข้อ • ข้ามข้อซ้ำ ${summary.skipped||0} ข้อ • แถวไม่ถูกต้อง ${summary.invalid||0} แถว ${summaryError}</div>`:""}
+ ${rows.length?`<div class="preview"><table class="table"><thead><tr><th>#</th><th>ID</th><th>หมวด</th><th>คำถามตัวอย่าง</th><th>ตัวเลือก</th></tr></thead><tbody>${preview}</tbody></table></div>`:""}</div>`;
+}
+
+async function handleImportFile(input){
+ const file=input.files&&input.files[0];if(!file)return;
+ try{
+  const text=await file.text();
+  const raw=file.name.toLowerCase().endsWith(".json")?JSON.parse(text):parseCsv(text);
+  const rows=normalizeImportRows(Array.isArray(raw)?raw:(raw.questions||[]));
+  state.importRows=rows;state.importFileName=file.name;state.importSummary=null;
+  render();toast(`อ่านไฟล์แล้ว ${rows.length} ข้อ`);
+ }catch(e){state.importRows=[];state.importFileName=file.name;state.importSummary={error:"อ่านไฟล์ไม่สำเร็จ: "+e.message};render()}
+}
+
+async function importSelectedQuestions(){
+ if(!state.user){openLogin();return}
+ if(!state.importRows.length){toast("ยังไม่มีไฟล์ข้อสอบ");return}
+ state.importBusy=true;state.importSummary={imported:0,skipped:0,invalid:0};render();
+ const total={imported:0,skipped:0,invalid:0};
+ try{
+  for(let i=0;i<state.importRows.length;i+=50){
+   const batch=state.importRows.slice(i,i+50);
+   const r=await api("importQuestions",{token:state.user.token,questions:batch});
+   total.imported+=Number(r.imported||0);total.skipped+=Number(r.skipped||0);total.invalid+=Number(r.invalid||0);
+   state.importSummary={imported:total.imported,skipped:total.skipped,invalid:total.invalid,progress:Math.min(i+batch.length,state.importRows.length)};render();
+  }
+  state.importBusy=false;state.importSummary=total;await bootstrap();toast(`นำเข้าเสร็จ ${total.imported} ข้อ`);
+ }catch(e){
+  state.importBusy=false;state.importSummary={imported:total.imported,skipped:total.skipped,invalid:total.invalid,error:e.message};render();
+ }
+}
+
 function startPractice(subjectIndex=null){
- if(subjectIndex!==null){state.practice={mode:"practice",subject:SUBJECTS[subjectIndex],qs:state.questions.filter(q=>q.subject===SUBJECTS[subjectIndex]),index:0,answers:{},revealed:{}}}
+ const subjects=allSubjects();
+ if(subjectIndex!==null){const subject=subjects[subjectIndex];state.practice={mode:"practice",subject,qs:state.questions.filter(q=>q.subject===subject),index:0,answers:{},revealed:{}}}
  else state.practice=null;
  go("practice");
 }
 function renderPractice(){
- if(!state.practice)return `<div class="card"><h3>🧠 แบบฝึกวัดความรู้</h3><p>เลือกหมวดวิชาเพื่อเริ่มฝึก หรือสุ่มข้อสอบจากทุกหมวด</p><div class="grid5">${SUBJECTS.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span>📖 หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3></div>`).join("")}</div><br><button class="btn" onclick="startAllPractice()">สุ่มฝึกทุกหมวด</button></div>`;
+ const subjects=allSubjects();
+ if(!state.practice)return `<div class="card"><h3>🧠 แบบฝึกวัดความรู้</h3><p>เลือกหมวดวิชาเพื่อเริ่มฝึก หรือทำครบทุกข้อจากทุกหมวด</p><div class="grid5">${subjects.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span class="badge mint">📖 หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3><p>${state.questions.filter(q=>q.subject===s).length||0} ข้อ</p></div>`).join("")}</div><br><button class="btn" onclick="startAllPractice()">ฝึกครบทุกข้อทุกหมวด</button></div>`;
  const p=state.practice;if(!p.qs.length)return '<div class="card empty">หมวดนี้ยังไม่มีข้อสอบ</div>';
  const q=p.qs[p.index], selected=p.answers[q.questionId], revealed=p.revealed[q.questionId];
  return `<div class="card"><div class="row between"><div><span class="badge">${escapeHtml(p.subject||"ทุกหมวด")}</span><p class="muted">ข้อ ${p.index+1} / ${p.qs.length}</p></div><button class="btn secondary" onclick="state.practice=null;render()">เปลี่ยนหมวด</button></div>
- <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected ":""}${revealed&&i===Number(q.answerIndex)?"correct ":""}${revealed&&selected===i&&selected!==Number(q.answerIndex)?"wrong":""}" onclick="practiceAnswer(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}
- ${revealed?`<div class="notice"><b>เฉลย: ${String.fromCharCode(65+Number(q.answerIndex))}</b><br>${escapeHtml(q.explanation||"ไม่มีคำอธิบาย")}</div>`:""}
- </div><div class="row between"><button class="btn secondary" onclick="practicePrev()">← ก่อนหน้า</button>${revealed?`<button class="btn" onclick="practiceNext()">${p.index===p.qs.length-1?"จบการฝึก":"ข้อถัดไป →"}</button>`:"<span class='muted'>เลือกคำตอบเพื่อดูเฉลย</span>"}</div></div>`;
+ <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected ":""}${revealed&&isCorrectChoice(q,i)?"correct ":""}${revealed&&hasAnswer(q)&&selected===i&&!isCorrectChoice(q,i)?"wrong":""}" onclick="practiceAnswer(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}
+ ${revealed?feedbackPanel(q,selected):""}
+ </div><div class="row between"><button class="btn secondary" onclick="practicePrev()">← ก่อนหน้า</button>${revealed?`<button class="btn" onclick="practiceNext()">${p.index===p.qs.length-1?"จบการฝึก":"ข้อถัดไป →"}</button>`:"<span class='muted'>เลือกคำตอบเพื่อไปต่อ</span>"}</div></div>`;
 }
-function startAllPractice(){state.practice={mode:"practice",subject:"ทุกหมวด",qs:[...state.questions].sort(()=>Math.random()-.5).slice(0,20),index:0,answers:{},revealed:{}};render()}
+function startAllPractice(){state.practice={mode:"practice",subject:"ทุกหมวด",qs:[...state.questions].sort(()=>Math.random()-.5),index:0,answers:{},revealed:{}};render()}
 async function practiceAnswer(i){
  const p=state.practice,q=p.qs[p.index];if(p.revealed[q.questionId])return;p.answers[q.questionId]=i;p.revealed[q.questionId]=true;render();
  if(state.user&&isConfigured())try{await api("saveAnswer",{token:state.user.token,questionId:q.questionId,selectedIndex:i,mode:"practice",examId:"practice-"+Date.now()})}catch(e){console.warn(e)}
@@ -231,37 +378,38 @@ async function practiceAnswer(i){
 function practicePrev(){if(state.practice.index>0)state.practice.index--;render()}
 async function practiceNext(){
  if(state.practice.index<state.practice.qs.length-1){state.practice.index++;render();return}
- const p=state.practice,score=p.qs.reduce((n,q)=>n+(Number(p.answers[q.questionId])===Number(q.answerIndex)?1:0),0);
- if(state.user&&isConfigured())try{await api("savePracticeResult",{token:state.user.token,score,total:p.qs.length,subject:p.subject})}catch(e){}
- toast(`ฝึกเสร็จแล้ว ${score}/${p.qs.length}`);state.practice=null;go("dashboard");
+ const p=state.practice,result=scoreKnown(p.qs,p.answers);
+ if(state.user&&isConfigured()&&result.total)try{await api("savePracticeResult",{token:state.user.token,score:result.score,total:result.total,subject:p.subject})}catch(e){}
+ toast(result.total?`ฝึกเสร็จแล้ว ${result.score}/${result.total}`:"ฝึกเสร็จแล้ว ชุดนี้ยังไม่มีเฉลยสำหรับคำนวณคะแนน");state.practice=null;go("dashboard");
 }
 
 function renderMock(){
- if(!state.mock)return `<div class="card hero"><div><h2>⏱️ Mock Exam</h2><p>40 ข้อ • 60 นาที • แบ่งเป็น 5 หมวดวิชา หมวดละ 8 ข้อ</p><div class="notice">ระบบจะสุ่มข้อสอบจากคลังที่มีอยู่ หากบางหมวดมีข้อสอบไม่ถึง 8 ข้อ ระบบจะใช้ข้อที่มีและแจ้งจำนวนที่ได้จริง</div><button class="btn" onclick="startMock()">เริ่ม Mock Exam</button></div><div class="hero-art">⏰</div></div>`;
- const m=state.mock,q=m.qs[m.index],selected=m.answers[q.questionId];
- return `<div class="card"><div class="row between"><div><span class="badge">Mock Exam • 40 ข้อ</span><p class="muted">หมวด ${SUBJECTS.indexOf(q.subject)+1}: ${escapeHtml(q.subject)} • ข้อ ${m.index+1}/40</p></div><div class="timer" id="mockTimer">${formatTime(m.remaining)}</div></div>
- <div class="progress"><i style="width:${((m.index)/40)*100}%"></i></div>
- <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected":""}" onclick="mockSelect(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}</div>
- <div class="row between"><button class="btn secondary" onclick="mockPrev()">← ก่อนหน้า</button><div class="row">${m.index<39?'<button class="btn" onclick="mockNext()">ถัดไป →</button>':'<button class="btn yellow" onclick="submitMock()">ส่งคำตอบ</button>'}</div></div></div>`;
+ const subjects=allSubjects();
+ if(!state.mock)return `<div class="card hero"><div><h2>⏱️ Mock Exam</h2><p>ครบทุกข้อจาก ${subjects.length} หมวดวิชา • จับเวลา 60 นาที</p><div class="notice">ระบบจะใช้ข้อสอบทั้งหมดในคลังปัจจุบัน ไม่มีการตัดจำนวนข้อออก และยังคงเรียงแยกหมวดให้อ่านง่าย</div><button class="btn" onclick="startMock()">เริ่ม Mock Exam ครบทุกข้อ</button></div><div class="hero-art">⏰</div></div>`;
+ const m=state.mock,q=m.qs[m.index],selected=m.answers[q.questionId],total=m.qs.length,answered=Object.prototype.hasOwnProperty.call(m.answers,q.questionId);
+ return `<div class="card"><div class="row between"><div><span class="badge">Mock Exam • ${total} ข้อ</span><p class="muted">หมวด ${subjects.indexOf(q.subject)+1}: ${escapeHtml(q.subject)} • ข้อ ${m.index+1}/${total}</p></div><div class="timer" id="mockTimer">${formatTime(m.remaining)}</div></div>
+ <div class="progress"><i style="width:${total?((m.index)/total)*100:0}%"></i></div>
+ <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected ":""}${answered&&isCorrectChoice(q,i)?"correct ":""}${answered&&hasAnswer(q)&&selected===i&&!isCorrectChoice(q,i)?"wrong":""}" onclick="mockSelect(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}${answered?feedbackPanel(q,selected):""}</div>
+ <div class="row between"><button class="btn secondary" onclick="mockPrev()">← ก่อนหน้า</button><div class="row">${m.index<total-1?'<button class="btn" onclick="mockNext()">ถัดไป →</button>':'<button class="btn yellow" onclick="submitMock()">ส่งคำตอบ</button>'}</div></div></div>`;
 }
 function formatTime(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
 function startMock(){
- const qs=[];
- SUBJECTS.forEach(s=>{const pool=state.questions.filter(q=>q.subject===s).sort(()=>Math.random()-.5);qs.push(...pool.slice(0,8))});
- const mixed=qs.sort((a,b)=>SUBJECTS.indexOf(a.subject)-SUBJECTS.indexOf(b.subject));
- if(mixed.length<40){toast(`คลังปัจจุบันมี ${mixed.length} ข้อ จึงไม่ครบ 40 ข้อ`)}
+ const qs=[],subjects=allSubjects();
+ subjects.forEach(s=>{const pool=state.questions.filter(q=>q.subject===s).sort(()=>Math.random()-.5);qs.push(...pool)});
+ const mixed=qs.sort((a,b)=>subjects.indexOf(a.subject)-subjects.indexOf(b.subject));
+ if(!mixed.length){toast("ยังไม่มีข้อสอบสำหรับทำ Mock Exam");return}
  state.mock={qs:mixed,index:0,answers:{},remaining:3600,startedAt:Date.now()};
  go("mock");clearInterval(window.mockClock);window.mockClock=setInterval(()=>{if(!state.mock){clearInterval(window.mockClock);return}state.mock.remaining--;if(state.mock.remaining<=0){state.mock.remaining=0;render();submitMock()}else{$("mockTimer")&&($("mockTimer").textContent=formatTime(state.mock.remaining))}},1000);
 }
-function mockSelect(i){if(state.mock)state.mock.answers[state.mock.qs[state.mock.index].questionId]=i;render()}
+function mockSelect(i){if(!state.mock)return;const q=state.mock.qs[state.mock.index];if(Object.prototype.hasOwnProperty.call(state.mock.answers,q.questionId))return;state.mock.answers[q.questionId]=i;render()}
 function mockPrev(){if(state.mock.index>0){state.mock.index--;render()}}
 function mockNext(){if(state.mock.index<state.mock.qs.length-1){state.mock.index++;render()}}
 async function submitMock(){
  if(!state.mock)return;clearInterval(window.mockClock);
- const m=state.mock, total=m.qs.length, score=m.qs.reduce((n,q)=>n+(Number(m.answers[q.questionId])===Number(q.answerIndex)?1:0),0);
- const breakdown={};SUBJECTS.forEach(s=>{const a=m.qs.filter(q=>q.subject===s);breakdown[s]={total:a.length,correct:a.reduce((n,q)=>n+(Number(m.answers[q.questionId])===Number(q.answerIndex)?1:0),0)}})
- if(state.user&&isConfigured())try{await api("saveMockResult",{token:state.user.token,score,total,durationSec:3600-m.remaining,subjectBreakdown:breakdown,answers:m.qs.map(q=>({questionId:q.questionId,selectedIndex:m.answers[q.questionId]??null}))})}catch(e){toast(e.message)}
- state.mock=null;state.analysis=null;await bootstrap();alert(`ส่งข้อสอบเรียบร้อย\\nคะแนน ${score}/${total} (${total?((score/total)*100).toFixed(1):0}%)`);go("analysis");
+ const m=state.mock, total=m.qs.length, result=scoreKnown(m.qs,m.answers);
+ const breakdown={};allSubjects().forEach(s=>{const a=m.qs.filter(q=>q.subject===s&&hasAnswer(q));breakdown[s]={total:a.length,correct:a.reduce((n,q)=>n+(isCorrectChoice(q,m.answers[q.questionId])?1:0),0)}})
+ if(state.user&&isConfigured()&&result.total)try{await api("saveMockResult",{token:state.user.token,score:result.score,total:result.total,durationSec:3600-m.remaining,subjectBreakdown:breakdown,answers:m.qs.map(q=>({questionId:q.questionId,selectedIndex:m.answers[q.questionId]!=null?m.answers[q.questionId]:null}))})}catch(e){toast(e.message)}
+ state.mock=null;state.analysis=null;await bootstrap();alert(result.total?`ส่งข้อสอบเรียบร้อย\\nคะแนน ${result.score}/${result.total} (${((result.score/result.total)*100).toFixed(1)}%)\\nทำทั้งหมด ${total} ข้อ`:`ส่งข้อสอบเรียบร้อย\\nชุดนี้ยังไม่มีเฉลยสำหรับคำนวณคะแนน\\nทำทั้งหมด ${total} ข้อ`);go("analysis");
 }
 
 function renderAnalysis(){
@@ -279,7 +427,7 @@ function renderNews(){
 }
 function renderProfile(){
  if(!state.user)return `<div class="card center"><h2>👤 โปรไฟล์</h2><p>กรุณาเข้าสู่ระบบเพื่อดูโปรไฟล์และประวัติ</p><button class="btn" onclick="openLogin()">เข้าสู่ระบบ</button></div>`;
- return `<div class="card"><h3>👤 โปรไฟล์สมาชิก</h3><p><b>ชื่อ:</b> ${escapeHtml(state.user.name)}</p><p><b>อีเมล:</b> ${escapeHtml(state.user.email)}</p><p><b>สมาชิกตั้งแต่:</b> ${escapeHtml(state.user.createdAt||"-")}</p><button class="btn danger" onclick="logout()">ออกจากระบบ</button></div>`;
+ return `<div class="card"><h3>👤 โปรไฟล์สมาชิก</h3><p><b>ชื่อ:</b> ${escapeHtml(state.user.name)}</p><p><b>อีเมล:</b> ${escapeHtml(state.user.email)}</p><p><b>สมาชิกตั้งแต่:</b> ${escapeHtml(state.user.createdAt||"-")}</p><div class="row"><button class="btn mint" onclick="go('import')">⬆️ นำเข้าข้อสอบ</button><button class="btn danger" onclick="logout()">ออกจากระบบ</button></div></div>`;
 }
 async function logout(){
  try{if(state.user&&isConfigured())await api("logout",{token:state.user.token})}catch(e){}
