@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PH-QUEST | คลังข้อสอบสภาการสาธารณสุขชุมชน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --pink:#f7b7ca;--pink2:#ffe0e9;--pink3:#fff2f6;--cream:#fff5c9;
+ --yellow:#f7d96a;--brown:#5c4650;--muted:#8d7880;--white:#fff;
+ --green:#76b894;--red:#df7474;--shadow:0 12px 35px rgba(130,75,95,.12);
+}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#fff8fa,#fffdf0);color:var(--brown);font-family:Kanit,sans-serif}
+button,input,select{font:inherit}.app{display:flex;min-height:100vh}
+.sidebar{width:250px;background:rgba(255,255,255,.92);border-right:1px solid #f4dce4;padding:22px 15px;position:fixed;inset:0 auto 0 0;z-index:10}
+.brand{display:flex;gap:11px;align-items:center;padding:5px 10px 22px}.logo{width:46px;height:46px;border-radius:16px;background:var(--pink);display:grid;place-items:center;font-size:24px;box-shadow:0 5px 15px #eeb0c4}.brand b{font-size:21px}.brand small{display:block;color:var(--muted);font-size:11px}
+.nav button{width:100%;border:0;background:transparent;color:var(--brown);text-align:left;padding:12px 14px;border-radius:14px;margin:3px 0;cursor:pointer}
+.nav button:hover,.nav button.active{background:var(--pink2);color:#a83f65}.nav span{display:inline-block;width:27px}.side-bottom{position:absolute;bottom:18px;left:15px;right:15px}
+.main{margin-left:250px;width:calc(100% - 250px);padding:24px 30px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.top h1{margin:0;font-size:27px}.userbox{display:flex;align-items:center;gap:10px}.avatar{width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center}
+.card{background:rgba(255,255,255,.9);border:1px solid #f2dce4;border-radius:22px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
+.hero{background:linear-gradient(110deg,var(--pink2),var(--cream));display:flex;justify-content:space-between;align-items:center;gap:20px}.hero h2{font-family:Mali;font-size:28px;margin:4px 0}.hero p{margin:6px 0;color:#765e67}.hero-art{font-size:70px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.stat b{display:block;font-size:28px;color:#a83f65}.stat small{color:var(--muted)}
+.subject{padding:18px;border-radius:18px;background:var(--pink3);border:1px solid #f6dce4;cursor:pointer}.subject h3{font-size:16px;margin:5px 0}.subject p{font-size:12px;color:var(--muted);margin:0}
+.btn{border:0;border-radius:13px;padding:10px 16px;background:#df82a2;color:white;cursor:pointer;font-weight:500}.btn.secondary{background:#fff;border:1px solid #edcbd7;color:#9d536d}.btn.yellow{background:#e8c64f;color:#5d4c21}.btn.danger{background:#d97b7b}.btn:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}
+.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--pink2);font-size:12px;color:#a34b69}
+.progress{height:10px;background:#f5e8eb;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:#e487a5;border-radius:99px}
+.question{padding:20px;border:1px solid #f0dce2;border-radius:18px;margin:12px 0;background:#fff}.option{display:block;width:100%;text-align:left;padding:13px;border:1px solid #eadde1;border-radius:13px;background:#fff;margin:8px 0;cursor:pointer}.option.selected{background:#ffe6ee;border-color:#df82a2}.option.correct{background:#e8f7ec;border-color:#82b997}.option.wrong{background:#ffeded;border-color:#df8a8a}
+.timer{font-size:25px;font-weight:700;color:#a83f65;background:var(--pink2);padding:8px 15px;border-radius:14px}
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px;border-bottom:1px solid #f1e4e8;text-align:left;font-size:13px}
+.input{width:100%;padding:12px;border:1px solid #e6d5da;border-radius:12px;outline:none;background:#fff}.input:focus{border-color:#dc91a9}
+.modal{position:fixed;inset:0;background:rgba(72,46,55,.35);display:none;place-items:center;z-index:50;padding:18px}.modal.show{display:grid}.modalbox{width:min(430px,100%);background:#fff;border-radius:24px;padding:25px}.modalbox h2{margin-top:0;font-family:Mali}
+.notice{padding:12px 14px;background:#fff8dc;border-left:4px solid var(--yellow);border-radius:10px;margin:8px 0}
+.hidden{display:none!important}.muted{color:var(--muted)}.center{text-align:center}.empty{padding:30px;text-align:center;color:var(--muted)}
+.toast{position:fixed;right:20px;bottom:20px;background:#5c4650;color:#fff;padding:12px 16px;border-radius:12px;display:none;z-index:100}
+.mobile-menu{display:none}
+@media(max-width:1050px){.grid5{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){
+ .sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}
+ .main{margin-left:0;width:100%;padding:16px}.mobile-menu{display:inline-block}
+ .top h1{font-size:22px}.hero-art{font-size:45px}.grid,.grid5{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">🎀</div><div><b>PH-QUEST</b><small>Community Public Health</small></div></div>
+  <div class="nav">
+    <button class="active" data-page="dashboard">🏠 <span>Dashboard</span></button>
+    <button data-page="bank">📚 <span>คลังข้อสอบ</span></button>
+    <button data-page="practice">🧠 <span>ฝึกทำข้อสอบ</span></button>
+    <button data-page="mock">⏱️ <span>Mock Exam</span></button>
+    <button data-page="analysis">📊 <span>วิเคราะห์จุดอ่อน</span></button>
+    <button data-page="news">📢 <span>ประกาศ</span></button>
+    <button data-page="profile">👤 <span>โปรไฟล์</span></button>
+  </div>
+  <div class="side-bottom"><button class="btn secondary" style="width:100%" onclick="openLogin()">🔐 เข้าสู่ระบบ</button></div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div class="row"><button class="btn secondary mobile-menu" onclick="toggleSide()">☰</button><h1 id="pageTitle">Dashboard</h1></div>
+  <div class="userbox"><div id="userLabel">ยังไม่ได้เข้าสู่ระบบ</div><div class="avatar">👤</div></div>
+</header>
+<div id="appView"></div>
+</main>
+</div>
+
+<div class="modal" id="authModal">
+ <div class="modalbox">
+  <div class="row between"><h2 id="authTitle">เข้าสู่ระบบ</h2><button class="btn secondary" onclick="closeLogin()">✕</button></div>
+  <div id="authNotice"></div>
+  <form id="authForm">
+   <label>อีเมล</label><input class="input" id="authEmail" type="email" required><br><br>
+   <label>รหัสผ่าน</label><input class="input" id="authPassword" type="password" minlength="6" required><br><br>
+   <div id="nameField" class="hidden"><label>ชื่อที่แสดง</label><input class="input" id="authName"></div><br>
+   <button class="btn" style="width:100%" id="authSubmit">เข้าสู่ระบบ</button>
+  </form>
+  <p class="center muted"><button class="btn secondary" id="authSwitch" onclick="switchAuth()">ยังไม่มีบัญชี? สมัครสมาชิก</button></p>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   PH-QUEST STANDALONE FRONTEND
+   1) Deploy Code.gs as Web App
+   2) Copy Web App URL
+   3) Paste it into GAS_URL below
+   ========================================================== */
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwmNROb7oL7aJfOLn8yjf9qoK4HAi1qy8_tcIwm6aGYQI4JdxUkCjK5eSQcbOQ-amoTIA/exec";
+const EXAM_DATE = "2026-12-31T09:00:00+07:00";
+
+const SUBJECTS = [
+ "กฎหมายและจรรยาบรรณวิชาชีพ",
+ "การส่งเสริมสุขภาพและป้องกันโรค",
+ "อนามัยสิ่งแวดล้อม",
+ "ระบาดวิทยาและสถิติสุขภาพ",
+ "การจัดการระบบสุขภาพชุมชน"
+];
+
+const DEMO_QUESTIONS = [
+ {questionId:"D001",subject:SUBJECTS[0],difficulty:"ง่าย",question:"ข้อใดเป็นหลักสำคัญของจรรยาบรรณวิชาชีพ",options:["คำนึงถึงประโยชน์และความปลอดภัยของผู้รับบริการ","เปิดเผยข้อมูลผู้รับบริการได้เสมอ","ให้บริการเฉพาะคนที่รู้จัก","หลีกเลี่ยงความรับผิดชอบ"],answerIndex:0,explanation:"หลักจริยธรรมมุ่งคุ้มครองผู้รับบริการและความรับผิดชอบของผู้ประกอบวิชาชีพ."},
+ {questionId:"D002",subject:SUBJECTS[1],difficulty:"ง่าย",question:"การป้องกันโรคระดับปฐมภูมิมุ่งเน้นสิ่งใด",options:["ป้องกันก่อนเกิดโรค","รักษาภาวะแทรกซ้อน","ฟื้นฟูหลังพิการ","รักษาในระยะสุดท้าย"],answerIndex:0,explanation:"ปฐมภูมิเน้นการป้องกันก่อนเกิดโรค เช่น การสร้างเสริมสุขภาพและลดปัจจัยเสี่ยง."},
+ {questionId:"D003",subject:SUBJECTS[2],difficulty:"ง่าย",question:"ข้อใดเกี่ยวข้องกับอนามัยสิ่งแวดล้อมโดยตรง",options:["คุณภาพน้ำและการจัดการขยะ","การเลือกสีเสื้อ","การทำบัญชีส่วนตัว","การตลาดสินค้า"],answerIndex:0,explanation:"น้ำเสีย ขยะ อากาศ และสิ่งแวดล้อมที่มีผลต่อสุขภาพเป็นประเด็นของอนามัยสิ่งแวดล้อม."},
+ {questionId:"D004",subject:SUBJECTS[3],difficulty:"ง่าย",question:"Incidence ใช้สะท้อนสิ่งใด",options:["จำนวนผู้ป่วยรายใหม่ในช่วงเวลาหนึ่ง","จำนวนผู้ป่วยทั้งหมดตลอดชีวิต","จำนวนประชากรทั้งหมด","จำนวนบุคลากรสาธารณสุข"],answerIndex:0,explanation:"Incidence เน้นการเกิดผู้ป่วยรายใหม่ในประชากรช่วงเวลาที่กำหนด."},
+ {questionId:"D005",subject:SUBJECTS[4],difficulty:"ง่าย",question:"การมีส่วนร่วมของชุมชนมีประโยชน์อย่างไร",options:["ช่วยให้การแก้ปัญหาสอดคล้องกับบริบทชุมชน","ทำให้ไม่ต้องเก็บข้อมูล","ลดความจำเป็นของการประเมินผล","ให้หน่วยงานตัดสินใจฝ่ายเดียว"],answerIndex:0,explanation:"การมีส่วนร่วมช่วยให้คนในพื้นที่ร่วมวิเคราะห์ วางแผน และสนับสนุนการดำเนินงาน."}
+];
+
+let state = {
+ page:"dashboard", user:null, questions:[], announcements:[], practice:null,
+ mock:null, analysis:null, authMode:"login", loading:false
+};
+
+function $(id){return document.getElementById(id)}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function toast(msg){$("toast").textContent=msg;$("toast").style.display="block";setTimeout(()=>$("toast").style.display="none",2500)}
+function isConfigured(){return GAS_URL && !GAS_URL.includes("PASTE_YOUR")}
+async function api(action,data={}){
+ if(!isConfigured()) throw new Error("ยังไม่ได้ใส่ GAS_URL");
+ const r=await fetch(GAS_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action,...data})});
+ const j=await r.json(); if(!j.ok) throw new Error(j.message||"เกิดข้อผิดพลาด"); return j;
+}
+function saveLocal(){localStorage.setItem("phq_user",JSON.stringify(state.user||null))}
+function loadLocal(){try{state.user=JSON.parse(localStorage.getItem("phq_user")||"null")}catch(e){state.user=null}}
+function toggleSide(){$("sidebar").classList.toggle("open")}
+function openLogin(mode="login"){state.authMode=mode;$("authModal").classList.add("show");renderAuth()}
+function closeLogin(){$("authModal").classList.remove("show")}
+function switchAuth(){state.authMode=state.authMode==="login"?"register":"login";renderAuth()}
+function renderAuth(){
+ const reg=state.authMode==="register"; $("authTitle").textContent=reg?"สมัครสมาชิก":"เข้าสู่ระบบ";
+ $("authSubmit").textContent=reg?"สมัครสมาชิก":"เข้าสู่ระบบ";
+ $("nameField").classList.toggle("hidden",!reg);
+ $("authSwitch").textContent=reg?"มีบัญชีแล้ว? เข้าสู่ระบบ":"ยังไม่มีบัญชี? สมัครสมาชิก";
+ $("authNotice").innerHTML=!isConfigured()?'<div class="notice">กรุณาใส่ <b>GAS_URL</b> ในไฟล์ HTML ก่อนใช้งานระบบสมาชิกและบันทึกข้อมูล</div>':"";
+}
+$("authForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const email=$("authEmail").value.trim(), password=$("authPassword").value;
+ try{
+  if(state.authMode==="register"){
+   const name=$("authName").value.trim()||email.split("@")[0];
+   const r=await api("register",{email,password,name}); state.user=r.user;
+  }else{const r=await api("login",{email,password});state.user=r.user}
+  saveLocal(); closeLogin(); updateUser(); toast("เข้าสู่ระบบสำเร็จ"); await bootstrap(); go("dashboard");
+ }catch(err){$("authNotice").innerHTML='<div class="notice" style="border-color:#df7474">'+escapeHtml(err.message)+'</div>'}
+});
+function updateUser(){
+ $("userLabel").textContent=state.user?`สวัสดี ${state.user.name||state.user.email}`:"ยังไม่ได้เข้าสู่ระบบ";
+}
+function requireLogin(){if(!state.user){openLogin();return false}return true}
+async function bootstrap(){
+ try{
+  if(isConfigured()){
+   const r=await api("bootstrap",{token:state.user?.token||""});
+   state.questions=r.questions||[];
+   state.announcements=r.announcements||[];
+   state.analysis=r.analysis||null;
+  }
+ }catch(e){console.warn(e)}
+ if(!state.questions.length) state.questions=DEMO_QUESTIONS;
+ render();
+}
+function go(page){
+ state.page=page; document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+ $("sidebar").classList.remove("open"); render();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+
+function render(){
+ const titles={dashboard:"Dashboard",bank:"คลังข้อสอบ",practice:"ฝึกทำข้อสอบ",mock:"Mock Exam",analysis:"วิเคราะห์จุดอ่อน",news:"ประกาศ",profile:"โปรไฟล์"};
+ $("pageTitle").textContent=titles[state.page]||"Dashboard"; updateUser();
+ const fn={dashboard:renderDashboard,bank:renderBank,practice:renderPractice,mock:renderMock,analysis:renderAnalysis,news:renderNews,profile:renderProfile}[state.page];
+ $("appView").innerHTML=fn();
+ if(state.page==="dashboard") startCountdown();
+}
+
+function renderDashboard(){
+ const total=state.questions.length, subjects=SUBJECTS.length;
+ const ann=state.announcements[0];
+ return `
+ <section class="card hero"><div><span class="badge">PH-QUEST</span><h2>เตรียมพร้อมสู่การสอบอย่างมั่นใจ 🌷</h2><p>ฝึกทำข้อสอบ วิเคราะห์จุดอ่อน และติดตามผลการเรียนรู้ในที่เดียว</p>
+ <div class="row" style="margin-top:14px"><button class="btn" onclick="go('practice')">เริ่มฝึกทำข้อสอบ</button><button class="btn secondary" onclick="go('mock')">เข้าสู่ Mock Exam</button></div></div><div class="hero-art">📚🎀</div></section>
+ <div class="grid">
+  <div class="card stat"><small>ข้อสอบในระบบ</small><b>${total}</b><span>ข้อ</span></div>
+  <div class="card stat"><small>หมวดวิชา</small><b>${subjects}</b><span>หมวด</span></div>
+  <div class="card stat"><small>Mock Exam</small><b>40</b><span>ข้อ / 60 นาที</span></div>
+  <div class="card stat"><small>สถานะสมาชิก</small><b style="font-size:20px">${state.user?"สมาชิก":"Guest"}</b></div>
+ </div>
+ <div class="card"><div class="row between"><h3>📚 5 หมวดวิชา</h3><span class="muted">เลือกหมวดเพื่อฝึก</span></div><div class="grid5">${SUBJECTS.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span class="badge">หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3><p>${state.questions.filter(q=>q.subject===s).length||0} ข้อในชุดข้อมูลปัจจุบัน</p></div>`).join("")}</div></div>
+ <div class="card"><div class="row between"><h3>📢 ประกาศล่าสุด</h3><button class="btn secondary" onclick="go('news')">ดูทั้งหมด</button></div>
+ ${ann?`<div class="notice"><b>${escapeHtml(ann.title)}</b><br>${escapeHtml(ann.message||"")}</div>`:'<div class="empty">ยังไม่มีประกาศจากระบบ</div>'}</div>
+ <div class="card center"><h3>⏳ Countdown ถึงวันสอบ</h3><div id="countdown" style="font-size:25px;font-weight:700">กำลังคำนวณ...</div><small class="muted">ปรับ EXAM_DATE ใน HTML ให้ตรงกับกำหนดการจริง</small></div>`;
+}
+function startCountdown(){clearInterval(window.cd);const el=$("countdown");if(!el)return;function tick(){const d=new Date(EXAM_DATE)-new Date();if(d<=0){el.textContent="ถึงวันสอบแล้ว";return}const days=Math.floor(d/86400000),h=Math.floor(d/3600000)%24,m=Math.floor(d/60000)%60,s=Math.floor(d/1000)%60;el.textContent=`${days} วัน ${h} ชม. ${m} นาที ${s} วินาที`}tick();window.cd=setInterval(tick,1000)}
+
+function renderBank(){
+ return `<div class="card"><div class="row between"><div><h3>คลังข้อสอบ</h3><p class="muted">ข้อสอบแบ่งตาม 5 หมวดวิชา</p></div><select class="input" style="max-width:320px" onchange="filterBank(this.value)"><option value="">ทุกหมวด</option>${SUBJECTS.map(s=>`<option>${escapeHtml(s)}</option>`).join("")}</select></div><div id="bankList">${bankList("")}</div></div>`;
+}
+function bankList(subject){
+ const qs=subject?state.questions.filter(q=>q.subject===subject):state.questions;
+ if(!qs.length)return '<div class="empty">ยังไม่มีข้อสอบในหมวดนี้</div>';
+ return qs.slice(0,100).map((q,i)=>`<div class="question"><div class="row between"><span class="badge">${escapeHtml(q.subject)}</span><span class="muted">${escapeHtml(q.difficulty||"")}</span></div><h3>${i+1}. ${escapeHtml(q.question)}</h3><div class="muted">ตัวเลือก ${q.options?.length||0} ตัวเลือก</div></div>`).join("");
+}
+function filterBank(v){$("bankList").innerHTML=bankList(v)}
+
+function startPractice(subjectIndex=null){
+ if(subjectIndex!==null){state.practice={mode:"practice",subject:SUBJECTS[subjectIndex],qs:state.questions.filter(q=>q.subject===SUBJECTS[subjectIndex]),index:0,answers:{},revealed:{}}}
+ else state.practice=null;
+ go("practice");
+}
+function renderPractice(){
+ if(!state.practice)return `<div class="card"><h3>🧠 แบบฝึกวัดความรู้</h3><p>เลือกหมวดวิชาเพื่อเริ่มฝึก หรือสุ่มข้อสอบจากทุกหมวด</p><div class="grid5">${SUBJECTS.map((s,i)=>`<div class="subject" onclick="startPractice(${i})"><span>📖 หมวด ${i+1}</span><h3>${escapeHtml(s)}</h3></div>`).join("")}</div><br><button class="btn" onclick="startAllPractice()">สุ่มฝึกทุกหมวด</button></div>`;
+ const p=state.practice;if(!p.qs.length)return '<div class="card empty">หมวดนี้ยังไม่มีข้อสอบ</div>';
+ const q=p.qs[p.index], selected=p.answers[q.questionId], revealed=p.revealed[q.questionId];
+ return `<div class="card"><div class="row between"><div><span class="badge">${escapeHtml(p.subject||"ทุกหมวด")}</span><p class="muted">ข้อ ${p.index+1} / ${p.qs.length}</p></div><button class="btn secondary" onclick="state.practice=null;render()">เปลี่ยนหมวด</button></div>
+ <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected ":""}${revealed&&i===Number(q.answerIndex)?"correct ":""}${revealed&&selected===i&&selected!==Number(q.answerIndex)?"wrong":""}" onclick="practiceAnswer(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}
+ ${revealed?`<div class="notice"><b>เฉลย: ${String.fromCharCode(65+Number(q.answerIndex))}</b><br>${escapeHtml(q.explanation||"ไม่มีคำอธิบาย")}</div>`:""}
+ </div><div class="row between"><button class="btn secondary" onclick="practicePrev()">← ก่อนหน้า</button>${revealed?`<button class="btn" onclick="practiceNext()">${p.index===p.qs.length-1?"จบการฝึก":"ข้อถัดไป →"}</button>`:"<span class='muted'>เลือกคำตอบเพื่อดูเฉลย</span>"}</div></div>`;
+}
+function startAllPractice(){state.practice={mode:"practice",subject:"ทุกหมวด",qs:[...state.questions].sort(()=>Math.random()-.5).slice(0,20),index:0,answers:{},revealed:{}};render()}
+async function practiceAnswer(i){
+ const p=state.practice,q=p.qs[p.index];if(p.revealed[q.questionId])return;p.answers[q.questionId]=i;p.revealed[q.questionId]=true;render();
+ if(state.user&&isConfigured())try{await api("saveAnswer",{token:state.user.token,questionId:q.questionId,selectedIndex:i,mode:"practice",examId:"practice-"+Date.now()})}catch(e){console.warn(e)}
+}
+function practicePrev(){if(state.practice.index>0)state.practice.index--;render()}
+async function practiceNext(){
+ if(state.practice.index<state.practice.qs.length-1){state.practice.index++;render();return}
+ const p=state.practice,score=p.qs.reduce((n,q)=>n+(Number(p.answers[q.questionId])===Number(q.answerIndex)?1:0),0);
+ if(state.user&&isConfigured())try{await api("savePracticeResult",{token:state.user.token,score,total:p.qs.length,subject:p.subject})}catch(e){}
+ toast(`ฝึกเสร็จแล้ว ${score}/${p.qs.length}`);state.practice=null;go("dashboard");
+}
+
+function renderMock(){
+ if(!state.mock)return `<div class="card hero"><div><h2>⏱️ Mock Exam</h2><p>40 ข้อ • 60 นาที • แบ่งเป็น 5 หมวดวิชา หมวดละ 8 ข้อ</p><div class="notice">ระบบจะสุ่มข้อสอบจากคลังที่มีอยู่ หากบางหมวดมีข้อสอบไม่ถึง 8 ข้อ ระบบจะใช้ข้อที่มีและแจ้งจำนวนที่ได้จริง</div><button class="btn" onclick="startMock()">เริ่ม Mock Exam</button></div><div class="hero-art">⏰</div></div>`;
+ const m=state.mock,q=m.qs[m.index],selected=m.answers[q.questionId];
+ return `<div class="card"><div class="row between"><div><span class="badge">Mock Exam • 40 ข้อ</span><p class="muted">หมวด ${SUBJECTS.indexOf(q.subject)+1}: ${escapeHtml(q.subject)} • ข้อ ${m.index+1}/40</p></div><div class="timer" id="mockTimer">${formatTime(m.remaining)}</div></div>
+ <div class="progress"><i style="width:${((m.index)/40)*100}%"></i></div>
+ <div class="question"><h3>${escapeHtml(q.question)}</h3>${q.options.map((o,i)=>`<button class="option ${selected===i?"selected":""}" onclick="mockSelect(${i})">${String.fromCharCode(65+i)}. ${escapeHtml(o)}</button>`).join("")}</div>
+ <div class="row between"><button class="btn secondary" onclick="mockPrev()">← ก่อนหน้า</button><div class="row">${m.index<39?'<button class="btn" onclick="mockNext()">ถัดไป →</button>':'<button class="btn yellow" onclick="submitMock()">ส่งคำตอบ</button>'}</div></div></div>`;
+}
+function formatTime(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function startMock(){
+ const qs=[];
+ SUBJECTS.forEach(s=>{const pool=state.questions.filter(q=>q.subject===s).sort(()=>Math.random()-.5);qs.push(...pool.slice(0,8))});
+ const mixed=qs.sort((a,b)=>SUBJECTS.indexOf(a.subject)-SUBJECTS.indexOf(b.subject));
+ if(mixed.length<40){toast(`คลังปัจจุบันมี ${mixed.length} ข้อ จึงไม่ครบ 40 ข้อ`)}
+ state.mock={qs:mixed,index:0,answers:{},remaining:3600,startedAt:Date.now()};
+ go("mock");clearInterval(window.mockClock);window.mockClock=setInterval(()=>{if(!state.mock){clearInterval(window.mockClock);return}state.mock.remaining--;if(state.mock.remaining<=0){state.mock.remaining=0;render();submitMock()}else{$("mockTimer")&&($("mockTimer").textContent=formatTime(state.mock.remaining))}},1000);
+}
+function mockSelect(i){if(state.mock)state.mock.answers[state.mock.qs[state.mock.index].questionId]=i;render()}
+function mockPrev(){if(state.mock.index>0){state.mock.index--;render()}}
+function mockNext(){if(state.mock.index<state.mock.qs.length-1){state.mock.index++;render()}}
+async function submitMock(){
+ if(!state.mock)return;clearInterval(window.mockClock);
+ const m=state.mock, total=m.qs.length, score=m.qs.reduce((n,q)=>n+(Number(m.answers[q.questionId])===Number(q.answerIndex)?1:0),0);
+ const breakdown={};SUBJECTS.forEach(s=>{const a=m.qs.filter(q=>q.subject===s);breakdown[s]={total:a.length,correct:a.reduce((n,q)=>n+(Number(m.answers[q.questionId])===Number(q.answerIndex)?1:0),0)}})
+ if(state.user&&isConfigured())try{await api("saveMockResult",{token:state.user.token,score,total,durationSec:3600-m.remaining,subjectBreakdown:breakdown,answers:m.qs.map(q=>({questionId:q.questionId,selectedIndex:m.answers[q.questionId]??null}))})}catch(e){toast(e.message)}
+ state.mock=null;state.analysis=null;await bootstrap();alert(`ส่งข้อสอบเรียบร้อย\\nคะแนน ${score}/${total} (${total?((score/total)*100).toFixed(1):0}%)`);go("analysis");
+}
+
+function renderAnalysis(){
+ if(!state.user)return `<div class="card center"><h2>📊 วิเคราะห์จุดอ่อน</h2><p class="muted">เข้าสู่ระบบเพื่อดูผลจากการทำข้อสอบจริงของคุณ</p><button class="btn" onclick="openLogin()">เข้าสู่ระบบ</button></div>`;
+ const a=state.analysis;
+ if(!a)return `<div class="card center"><h2>📊 วิเคราะห์จุดอ่อน</h2><p>กำลังโหลดข้อมูล...</p></div>`;
+ const rows=(a.subjectScores||[]).map(x=>`<tr><td>${escapeHtml(x.subject)}</td><td>${x.correct}/${x.attempts}</td><td><div class="progress"><i style="width:${x.accuracy}%"></i></div></td><td>${x.accuracy.toFixed(1)}%</td></tr>`).join("");
+ return `<div class="card"><h3>📊 วิเคราะห์จากผลการทำข้อสอบจริง</h3><p class="muted">คำนวณจากคำตอบรายข้อที่บันทึกใน Google Sheets ไม่ใช่คะแนนประมาณการ</p>
+ <table class="table"><thead><tr><th>หมวด</th><th>ถูก/ทำ</th><th>ความแม่นยำ</th><th>%</th></tr></thead><tbody>${rows||'<tr><td colspan="4" class="center">ยังไม่มีข้อมูล</td></tr>'}</tbody></table></div>
+ <div class="card"><h3>🎯 จุดที่ควรทบทวน</h3>${(a.weaknesses||[]).map(w=>`<div class="notice"><b>${escapeHtml(w.subject)}</b> — ความแม่นยำ ${Number(w.accuracy).toFixed(1)}%<br>${escapeHtml(w.recommendation||"ควรฝึกเพิ่มในหมวดนี้")}</div>`).join("")||'<div class="empty">ทำข้อสอบเพิ่มเติมเพื่อให้ระบบวิเคราะห์จุดอ่อนได้แม่นยำขึ้น</div>'}</div>`;
+}
+
+function renderNews(){
+ return `<div class="card"><h3>📢 ประกาศและกำหนดการ</h3>${state.announcements.length?state.announcements.map(a=>`<div class="notice"><b>${escapeHtml(a.title)}</b><br>${escapeHtml(a.message||"")}<br><small class="muted">${escapeHtml(a.date||"")}</small></div>`).join(""):'<div class="empty">ยังไม่มีประกาศ</div>'}</div>`;
+}
+function renderProfile(){
+ if(!state.user)return `<div class="card center"><h2>👤 โปรไฟล์</h2><p>กรุณาเข้าสู่ระบบเพื่อดูโปรไฟล์และประวัติ</p><button class="btn" onclick="openLogin()">เข้าสู่ระบบ</button></div>`;
+ return `<div class="card"><h3>👤 โปรไฟล์สมาชิก</h3><p><b>ชื่อ:</b> ${escapeHtml(state.user.name)}</p><p><b>อีเมล:</b> ${escapeHtml(state.user.email)}</p><p><b>สมาชิกตั้งแต่:</b> ${escapeHtml(state.user.createdAt||"-")}</p><button class="btn danger" onclick="logout()">ออกจากระบบ</button></div>`;
+}
+async function logout(){
+ try{if(state.user&&isConfigured())await api("logout",{token:state.user.token})}catch(e){}
+ state.user=null;saveLocal();updateUser();toast("ออกจากระบบแล้ว");go("dashboard");
+}
+loadLocal();updateUser();bootstrap();
+</script>
+</body>
+</html>
